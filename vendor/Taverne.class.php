@@ -152,8 +152,8 @@ class Taverne {
     public function hydrate( $datas ) { //On hydrate pour récupérer les infos.
         foreach ($datas as $key => $value) {
             // $key = 't_id'
-            $methodName = str_replace(`t_`, ``, $key ); //methodName = 'id'=> ça enlève le t_ .
-            $methodName = str_replace(`_fk`, ``, $methodName ); //=> ça enlève les fk ou il y en a .
+            $methodName = str_replace('t_', '', $key ); //methodName = 'id'=> ça enlève le t_ .
+            $methodName = str_replace('_fk', '', $methodName ); //=> ça enlève les fk ou il y en a .
             $methodName = ucfirst($methodName); //methodName = 'Taverne'  => ça met la majuscule.
             $methodName = 'set' . ucfirst($methodName); //methodName = 'setId'  => ça rajoute le set !!!
 

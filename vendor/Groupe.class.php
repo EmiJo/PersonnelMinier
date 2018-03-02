@@ -109,8 +109,8 @@ class Groupe {
     public function hydrate( $datas ) { //On hydrate pour récupérer les infos.
         foreach ($datas as $key => $value) {
             // $key = 'g_id'
-            $methodName = str_replace(`g_`, ``, $key ); //methodName = 'id'=> ça enlève le g_ .
-            $methodName = str_replace(`_fk`, ``, $methodName ); //=> ça enlève les fk ou il y en a.
+            $methodName = str_replace('g_', '', $key ); //methodName = 'id'=> ça enlève le g_ .
+            $methodName = str_replace('_fk','', $methodName ); //=> ça enlève les fk ou il y en a.
             $methodName = ucfirst($methodName); //methodName = 'Groupe'  => ça met la majuscule.
             $methodName = 'set' . ucfirst($methodName); //methodName = 'setId'  => ça rajoute le set !!!
 

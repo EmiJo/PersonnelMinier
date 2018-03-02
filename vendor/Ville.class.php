@@ -72,14 +72,20 @@ class Ville {
     public function hydrate( $datas ) { //On hydrate pour récupérer les infos.
         foreach ($datas as $key => $value) {
             // $key = 'v_id'
-            $methodName = str_replace(`v_`, ``, $key ); //methodName = 'id'=> ça enlève le v_ .
-            $methodName = str_replace(`_fk`, ``, $methodName ); //=> ça enlève les fk ou il y en a.
+
+
+           /* $methodName = ucfirst( $key );*/ //methodName = 'id'=> ça enlève le v_ .
+            /*$methodName = substr($methodName, 2);*/ //Pour supprimer les 2 premiers caractères : v_ .
+            $methodName = str_replace('v_', '', $key );
+            $methodName = str_replace('_fk', '', $methodName ); //=> ça enlève les fk ou il y en a.
             $methodName = ucfirst($methodName); //methodName = 'Ville'  => ça met la majuscule.
             $methodName = 'set' . ucfirst($methodName); //methodName = 'setId'  => ça rajoute le set !!!
-
+/*var_dump($methodName);*/
             if( method_exists( $this, $methodName ) ) { //On verifie si la méthode existe.
             $this->$methodName( $value ); // $this->setId($value) SOIT $this->setId($datas['v_id']) ;
             }
+
+            //var_dump($methodName);
         }
     }
 
