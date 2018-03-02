@@ -3,13 +3,15 @@ include( 'header.php' );
 ?>
 <article role="article">
     <header>
-        <h1>Fiche de la ville <?php echo $villeObj->getNom() ; ?></h1>
+        <h1>Fiche de la ville <?php echo $ville['v_nom'] ; ?></h1>
     </header>
      <?php
-        if( isset($villeObj) && is_object($villeObj) && get_class($villeObj)=='Ville' ) {
-            echo 'Nom : ' . $villeObj->getNom();
-            echo '<br>Superficie : ' . $villeObj->getSuperficie() . ' km².' ;
 
+        if( isset( $villeObj ) && is_object( $villeObj ) && get_class( $villeObj )=='Ville' ) {
+
+
+            echo 'Nom : <a href="index.php?c=ville&a=showOne&id=' . $villeObj->getId() . '" title="' . $villeObj->getId() . '">' . $villeObj->getNom() . '</a>';
+            echo '<br>Superficie : ' . $villeObj->getSuperficie() . ' km²';
             echo '<br>Liste des nains originaires de cette ville : <ul>';
             foreach( $nains as $nain ) {
                 echo '<li><a href="index.php?c=nain&a=showOne&id=' . $nain['n_id'] . '" title="' . $nain['n_nom'] . '">' . $nain['n_nom'] . '</a></li>';

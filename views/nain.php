@@ -13,7 +13,7 @@ include('header.php');
 
 
             if( !is_null($nainObj->getGroupe()->getTaverne()->getNom() ) ) {
-            echo 'Boit dans <a href="index.php?c=taverne&a=showOne&id=' . $nainObj->getGroupe()->getTaverne()->getId() . ' title="' . $nainObj->getGroupe()->getTaverne()->getNom() . '"> ' . $nainObj->getGroupe()->getTaverne()->getNom() . '</a>' ;
+            echo '<br>Boit dans la taverne : <a href="index.php?c=taverne&a=showOne&id=' . $nainObj->getGroupe()->getTaverne()->getId() . '" title="' . $nainObj->getGroupe()->getTaverne()->getNom() . ' "> ' . $nainObj->getGroupe()->getTaverne()->getNom() . '</a>' ;
             }
 
             if( !is_null($nainObj->getGroupe()->getTunnel()->getId() )) {
